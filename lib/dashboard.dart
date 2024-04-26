@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food/sidebar_menu.dart'; // Import the sidebar_menu.dart file
 import 'main.dart';
-import 'notifications.dart';
-import 'mngjailfacility.dart';
-import 'styles.dart';
 
 class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,8 +17,8 @@ class DashboardScreen extends StatelessWidget {
               width: 60, // Adjust width as needed
               height: 60, // Adjust height as needed
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -31,15 +30,15 @@ class DashboardScreen extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Logout',
                 style: TextStyle(
                   color: Colors.white,
@@ -55,11 +54,11 @@ class DashboardScreen extends StatelessWidget {
       body: Expanded(
         child: Row(
           children: [
-            Sidebar(),
+            const Sidebar(),
             Expanded(
               child: Container(
-                margin: EdgeInsets.all(50.0),
-                padding: EdgeInsets.all(20.0),
+                margin: const EdgeInsets.all(50.0),
+                padding: const EdgeInsets.all(20.0),
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 255, 255, 255),
                   borderRadius: BorderRadius.circular(20.0),
@@ -68,7 +67,7 @@ class DashboardScreen extends StatelessWidget {
                       color: Colors.black.withOpacity(0.2),
                       spreadRadius: 5,
                       blurRadius: 7,
-                      offset: Offset(0, 3),
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),
@@ -79,10 +78,10 @@ class DashboardScreen extends StatelessWidget {
                     // New container with rounded edges for "Hello, Admin!" and admin image
                     Container(
                       width: double.infinity,
-                      margin: EdgeInsets.only(bottom: 20.0, top: 10.0),
-                      padding: EdgeInsets.all(20.0),
+                      margin: const EdgeInsets.only(bottom: 20.0, top: 10.0),
+                      padding: const EdgeInsets.all(20.0),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 153, 153, 153),
+                        color: const Color.fromARGB(255, 153, 153, 153),
                         borderRadius: BorderRadius.circular(20),
                       ),
                       child: Row(
@@ -92,8 +91,8 @@ class DashboardScreen extends StatelessWidget {
                             width: 70,
                             height: 70,
                           ),
-                          SizedBox(width: 8),
-                          Text(
+                          const SizedBox(width: 8),
+                          const Text(
                             'Hello, Admin!',
                             style: TextStyle(
                               color: Colors.white,
@@ -104,7 +103,7 @@ class DashboardScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -116,7 +115,7 @@ class DashboardScreen extends StatelessWidget {
                             width: 450,
                             height: 450,
                             color: Colors.lightBlue,
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'View Facilities',
                                 style: TextStyle(
@@ -135,8 +134,8 @@ class DashboardScreen extends StatelessWidget {
                           child: Container(
                             width: 450,
                             height: 450,
-                            color: Color.fromARGB(255, 86, 40, 214),
-                            child: Center(
+                            color: const Color.fromARGB(255, 86, 40, 214),
+                            child: const Center(
                               child: Text(
                                 'Facility Requests',
                                 style: TextStyle(
@@ -155,8 +154,8 @@ class DashboardScreen extends StatelessWidget {
                           child: Container(
                             width: 450,
                             height: 450,
-                            color: Color.fromARGB(255, 248, 175, 38),
-                            child: Center(
+                            color: const Color.fromARGB(255, 248, 175, 38),
+                            child: const Center(
                               child: Text(
                                 'View Feedbacks',
                                 style: TextStyle(
@@ -183,24 +182,38 @@ class DashboardScreen extends StatelessWidget {
 
 // This class declaration was missing in your original code
 class Sidebar extends StatelessWidget {
+  const Sidebar({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 300,
-      color: Color.fromARGB(255, 4, 14, 29),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(height: 20),
-          SidebarMenuItem(text: 'Dashboard', iconPath: 'icons/dashboard.png'),
-          SidebarMenuItem(
-              text: 'Notifications', iconPath: 'icons/notification.png'),
-          SidebarMenuItem(
-              text: 'Approve Facilities', iconPath: 'icons/facilities.png'),
-          SidebarMenuItem(
-              text: 'Manage Accounts', iconPath: 'icons/accounts.png'),
-          SidebarMenuItem(text: 'Settings', iconPath: 'icons/settings.png'),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.2),
+            spreadRadius: 5,
+            blurRadius: 7,
+            offset: const Offset(0, 3),
+          ),
         ],
+      ),
+      child: Container(
+        width: 300,
+        color: const Color.fromARGB(255, 4, 14, 29),
+        child: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(height: 20),
+            SidebarMenuItem(text: 'Dashboard', iconPath: 'icons/dashboard.png'),
+            SidebarMenuItem(
+                text: 'Notifications', iconPath: 'icons/notification.png'),
+            SidebarMenuItem(
+                text: 'Approve Facilities', iconPath: 'icons/facilities.png'),
+            SidebarMenuItem(
+                text: 'Manage Accounts', iconPath: 'icons/accounts.png'),
+            SidebarMenuItem(text: 'Settings', iconPath: 'icons/settings.png'),
+          ],
+        ),
       ),
     );
   }

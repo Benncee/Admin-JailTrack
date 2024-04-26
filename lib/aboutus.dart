@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food/settings.dart';
 import 'package:food/sidebar_menu.dart';
 import 'main.dart';
-import 'notifications.dart';
-import 'mngjailfacility.dart';
-import 'styles.dart';
 
 class AboutUsPage extends StatelessWidget {
+  const AboutUsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,8 +18,8 @@ class AboutUsPage extends StatelessWidget {
               width: 60, // Adjust width as needed
               height: 60, // Adjust height as needed
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -33,15 +31,15 @@ class AboutUsPage extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Logout',
                 style: TextStyle(
                   color: Colors.white,
@@ -56,22 +54,22 @@ class AboutUsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 4, 14, 29),
       body: Row(
         children: [
-          Sidebar(),
+          const Sidebar(),
           Expanded(
             child: Container(
               width: 300,
               height: 950,
-              margin: EdgeInsets.all(50.0),
-              padding: EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(50.0),
+              padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 211, 211, 211),
+                color: const Color.fromARGB(255, 211, 211, 211),
                 borderRadius: BorderRadius.circular(20.0),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -112,14 +110,14 @@ class AboutUsPage extends StatelessWidget {
                               PageRouteBuilder(
                                 pageBuilder:
                                     (context, animation1, animation2) =>
-                                        SettingsPage(),
-                                transitionDuration: Duration(seconds: 0),
+                                        const SettingsPage(),
+                                transitionDuration: const Duration(seconds: 0),
                               ),
                             );
                           },
                           child: Container(
                             alignment: Alignment.centerLeft,
-                            child: Row(
+                            child: const Row(
                               children: [
                                 Icon(Icons.arrow_back),
                                 SizedBox(width: 8),
@@ -134,8 +132,8 @@ class AboutUsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
-                        Center(
+                        const SizedBox(height: 20),
+                        const Center(
                           child: Text(
                             'ABOUT US',
                             style: TextStyle(
@@ -144,8 +142,8 @@ class AboutUsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
-                        Center(
+                        const SizedBox(height: 20),
+                        const Center(
                           child: Text(
                             'JAILTRACK: A Face Recognition-Based Solution for Shift Scheduling and Attendance Monitoring of Jail Officers\n\n',
                             textAlign: TextAlign.center,
@@ -155,8 +153,8 @@ class AboutUsPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(height: 20),
-                        Center(
+                        const SizedBox(height: 20),
+                        const Center(
                           child: Text(
                             'Welcome to JAILTRACK, a cutting-edge face recognition-based solution designed to revolutionize shift scheduling\n and attendance monitoring for jail officers. Our innovative system harnesses the power of advanced facial technology\n to streamline and enhance the management of jail personnel, ensuring a secure and efficient facility environment.',
                             textAlign: TextAlign.center,
@@ -180,6 +178,8 @@ class AboutUsPage extends StatelessWidget {
 }
 
 class Sidebar extends StatelessWidget {
+  const Sidebar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -189,14 +189,14 @@ class Sidebar extends StatelessWidget {
             color: Colors.black.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: Container(
         width: 300,
-        color: Color.fromARGB(255, 4, 14, 29),
-        child: Column(
+        color: const Color.fromARGB(255, 4, 14, 29),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),

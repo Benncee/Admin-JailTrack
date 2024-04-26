@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:food/mngaccounts.dart';
 import 'package:food/sidebar_menu.dart';
 import 'main.dart';
-import 'dashboard.dart'; // Import the dashboard.dart file
-import 'styles.dart';
-import 'mngjailfacility.dart';
+// Import the dashboard.dart file
 
 class NotificationsPage extends StatelessWidget {
+  const NotificationsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +18,8 @@ class NotificationsPage extends StatelessWidget {
               width: 60, // Adjust width as needed
               height: 60, // Adjust height as needed
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -32,15 +31,15 @@ class NotificationsPage extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Logout',
                 style: TextStyle(
                   color: Colors.white,
@@ -55,22 +54,22 @@ class NotificationsPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 4, 14, 29),
       body: Row(
         children: [
-          Sidebar(),
+          const Sidebar(),
           Expanded(
             child: Container(
               width: 300,
               height: 900,
-              margin: EdgeInsets.all(50.0),
-              padding: EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(50.0),
+              padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 185, 185, 185),
+                color: const Color.fromARGB(255, 185, 185, 185),
                 borderRadius: BorderRadius.circular(20.0),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -80,13 +79,13 @@ class NotificationsPage extends StatelessWidget {
                   // New container with rounded edges and adjusted position
                   Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(bottom: 10.0), // Adjusted margin
+                    margin: const EdgeInsets.only(bottom: 10.0), // Adjusted margin
                     height: 80,
                     decoration: BoxDecoration(
                       color: Colors.lightBlue,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Notifications',
                         style: TextStyle(
@@ -97,7 +96,7 @@ class NotificationsPage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   Expanded(
                     child: Scrollbar(
                       child: ListView.builder(
@@ -111,11 +110,11 @@ class NotificationsPage extends StatelessWidget {
                               color: const Color.fromARGB(255, 255, 255, 255),
                               borderRadius: BorderRadius.circular(20),
                             ),
-                            child: Center(
+                            child: const Center(
                               child: Text(
                                 'No New Notifications',
                                 style: TextStyle(
-                                  color: const Color.fromARGB(255, 0, 0, 0),
+                                  color: Color.fromARGB(255, 0, 0, 0),
                                   fontWeight: FontWeight.bold,
                                   fontSize: 24,
                                 ),
@@ -137,6 +136,8 @@ class NotificationsPage extends StatelessWidget {
 }
 
 class Sidebar extends StatelessWidget {
+  const Sidebar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -146,14 +147,14 @@ class Sidebar extends StatelessWidget {
             color: Colors.black.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: Container(
         width: 300,
-        color: Color.fromARGB(255, 4, 14, 29),
-        child: Column(
+        color: const Color.fromARGB(255, 4, 14, 29),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),

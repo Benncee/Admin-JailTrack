@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:food/settings.dart';
 import 'package:food/sidebar_menu.dart'; // Import the sidebar_menu.dart file
 import 'main.dart';
-import 'notifications.dart';
-import 'mngjailfacility.dart';
-import 'styles.dart';
 
 class EditProfilePage extends StatelessWidget {
+  const EditProfilePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,8 +18,8 @@ class EditProfilePage extends StatelessWidget {
               width: 60, // Adjust width as needed
               height: 60, // Adjust height as needed
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -32,15 +31,15 @@ class EditProfilePage extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Logout',
                 style: TextStyle(
                   color: Colors.white,
@@ -55,13 +54,13 @@ class EditProfilePage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 4, 14, 29),
       body: Row(
         children: [
-          Sidebar(),
+          const Sidebar(),
           Expanded(
             child: Container(
               width: 300,
               height: 900,
-              margin: EdgeInsets.all(50.0),
-              padding: EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(50.0),
+              padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),
                 borderRadius: BorderRadius.circular(20.0),
@@ -70,7 +69,7 @@ class EditProfilePage extends StatelessWidget {
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -78,7 +77,7 @@ class EditProfilePage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
+                  const Row(
                     children: [
                       Icon(Icons.admin_panel_settings), // Admin icon
                       SizedBox(width: 10),
@@ -91,18 +90,18 @@ class EditProfilePage extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   // Form for editing profile information
-                  EditProfileForm(),
-                  SizedBox(height: 20),
+                  const EditProfileForm(),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
                         PageRouteBuilder(
                           pageBuilder: (context, animation1, animation2) =>
-                              SettingsPage(),
-                          transitionDuration: Duration(seconds: 0),
+                              const SettingsPage(),
+                          transitionDuration: const Duration(seconds: 0),
                           transitionsBuilder:
                               (context, animation1, animation2, child) {
                             return child;
@@ -110,7 +109,7 @@ class EditProfilePage extends StatelessWidget {
                         ),
                       );
                     },
-                    child: Text('Back'),
+                    child: const Text('Back'),
                   ),
                 ],
               ),
@@ -123,6 +122,8 @@ class EditProfilePage extends StatelessWidget {
 }
 
 class Sidebar extends StatelessWidget {
+  const Sidebar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -132,14 +133,14 @@ class Sidebar extends StatelessWidget {
             color: Colors.black.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: Container(
         width: 300,
-        color: Color.fromARGB(255, 4, 14, 29),
-        child: Column(
+        color: const Color.fromARGB(255, 4, 14, 29),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),
@@ -159,20 +160,22 @@ class Sidebar extends StatelessWidget {
 }
 
 class EditProfileForm extends StatefulWidget {
+  const EditProfileForm({super.key});
+
   @override
   _EditProfileFormState createState() => _EditProfileFormState();
 }
 
 class _EditProfileFormState extends State<EditProfileForm> {
   final _formKey = GlobalKey<FormState>();
-  TextEditingController _firstNameController = TextEditingController();
-  TextEditingController _lastNameController = TextEditingController();
-  TextEditingController _middleNameController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _contactNumberController = TextEditingController();
-  TextEditingController _addressController = TextEditingController();
-  TextEditingController _provinceController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _firstNameController = TextEditingController();
+  final TextEditingController _lastNameController = TextEditingController();
+  final TextEditingController _middleNameController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _contactNumberController = TextEditingController();
+  final TextEditingController _addressController = TextEditingController();
+  final TextEditingController _provinceController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -188,7 +191,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
                   children: [
                     TextFormField(
                       controller: _firstNameController,
-                      decoration: InputDecoration(labelText: 'First Name'),
+                      decoration: const InputDecoration(labelText: 'First Name'),
                       maxLength: 50,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -197,10 +200,10 @@ class _EditProfileFormState extends State<EditProfileForm> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _lastNameController,
-                      decoration: InputDecoration(labelText: 'Last Name'),
+                      decoration: const InputDecoration(labelText: 'Last Name'),
                       maxLength: 50,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -209,19 +212,19 @@ class _EditProfileFormState extends State<EditProfileForm> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _middleNameController,
-                      decoration: InputDecoration(labelText: 'Middle Name'),
+                      decoration: const InputDecoration(labelText: 'Middle Name'),
                       maxLength: 50,
                       validator: (value) {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _emailController,
-                      decoration: InputDecoration(labelText: 'Email Address'),
+                      decoration: const InputDecoration(labelText: 'Email Address'),
                       maxLength: 100,
                       validator: (value) {
                         return null;
@@ -230,40 +233,40 @@ class _EditProfileFormState extends State<EditProfileForm> {
                   ],
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   children: [
                     TextFormField(
                       controller: _contactNumberController,
-                      decoration: InputDecoration(labelText: 'Contact Number'),
+                      decoration: const InputDecoration(labelText: 'Contact Number'),
                       maxLength: 20,
                       validator: (value) {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _addressController,
-                      decoration: InputDecoration(labelText: 'Address'),
+                      decoration: const InputDecoration(labelText: 'Address'),
                       maxLength: 200,
                       validator: (value) {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _provinceController,
-                      decoration: InputDecoration(labelText: 'Province'),
+                      decoration: const InputDecoration(labelText: 'Province'),
                       maxLength: 50,
                       validator: (value) {
                         return null;
                       },
                     ),
-                    SizedBox(height: 20),
+                    const SizedBox(height: 20),
                     TextFormField(
                       controller: _passwordController,
-                      decoration: InputDecoration(labelText: 'Password'),
+                      decoration: const InputDecoration(labelText: 'Password'),
                       obscureText: true,
                       maxLength: 50,
                       validator: (value) {
@@ -278,7 +281,7 @@ class _EditProfileFormState extends State<EditProfileForm> {
               ),
             ],
           ),
-          SizedBox(height: 20),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
@@ -294,10 +297,10 @@ class _EditProfileFormState extends State<EditProfileForm> {
                 print('Password: ${_passwordController.text}');
               }
             },
-            child: Text('Save Changes'),
+            child: const Text('Save Changes'),
           ),
-          SizedBox(height: 20),
-          Row(
+          const SizedBox(height: 20),
+          const Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               // Greyed-out User ID field

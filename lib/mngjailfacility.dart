@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:food/sidebar_menu.dart';
 import 'main.dart';
-import 'dashboard.dart'; // Import the dashboard.dart file
-import 'styles.dart';
-import 'notifications.dart';
 
 class ManageJailFacilityPage extends StatelessWidget {
+  const ManageJailFacilityPage({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,12 +13,12 @@ class ManageJailFacilityPage extends StatelessWidget {
         title: Row(
           children: [
             Image.asset(
-              'icons/JailTrackLogo.png', // Path to your JailTrack logo
-              width: 60, // Adjust width as needed
-              height: 60, // Adjust height as needed
+              'icons/JailTrackLogo.png',
+              width: 60,
+              height: 60,
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -31,15 +30,15 @@ class ManageJailFacilityPage extends StatelessWidget {
         backgroundColor: Colors.grey[900],
         actions: [
           Container(
-            padding: EdgeInsets.only(right: 16.0),
+            padding: const EdgeInsets.only(right: 16.0),
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => MyApp()),
+                  MaterialPageRoute(builder: (context) => const MyApp()),
                 );
               },
-              child: Text(
+              child: const Text(
                 'Logout',
                 style: TextStyle(
                   color: Colors.white,
@@ -54,13 +53,13 @@ class ManageJailFacilityPage extends StatelessWidget {
       backgroundColor: const Color.fromARGB(255, 4, 14, 29),
       body: Row(
         children: [
-          Sidebar(),
+          const Sidebar(),
           Expanded(
             child: Container(
               width: 300,
               height: 900,
-              margin: EdgeInsets.all(50.0),
-              padding: EdgeInsets.all(20.0),
+              margin: const EdgeInsets.all(50.0),
+              padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 185, 185, 185),
                 borderRadius: BorderRadius.circular(20.0),
@@ -69,7 +68,7 @@ class ManageJailFacilityPage extends StatelessWidget {
                     color: Colors.black.withOpacity(0.2),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3),
+                    offset: const Offset(0, 3),
                   ),
                 ],
               ),
@@ -79,13 +78,14 @@ class ManageJailFacilityPage extends StatelessWidget {
                   // New container with rounded edges and adjusted position
                   Container(
                     width: double.infinity,
-                    margin: EdgeInsets.only(bottom: 10.0), // Adjusted margin
+                    margin:
+                        const EdgeInsets.only(bottom: 10.0), // Adjusted margin
                     height: 80,
                     decoration: BoxDecoration(
                       color: Colors.lightBlue,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Approve Jail Facilities',
                         style: TextStyle(
@@ -96,23 +96,137 @@ class ManageJailFacilityPage extends StatelessWidget {
                       ),
                     ),
                   ),
+                  const SizedBox(height: 20),
+                  // Cebu City Jail Male Dormitory box with approve and decline buttons
+                  Container(
+                    width: 1450,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Cebu City Jail Male Dormitory',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      // Arrow button action to show detailed information
+                                    },
+                                    icon: Icon(Icons.arrow_forward),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      // Approve button action
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors
+                                          .green, // Green color for approve button
+                                    ),
+                                    child: Text('Approve'),
+                                  ),
+                                  SizedBox(
+                                      width: 10), // Add spacing between buttons
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      // Decline button action
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors
+                                          .red, // Red color for decline button
+                                    ),
+                                    child: Text('Decline'),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 20),
                   Container(
                     width: 1450,
-                    height: 585,
+                    height: 150,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(20),
                     ),
-                    child: Center(
-                      child: Text(
-                        'No Jail Facilities Available',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 24,
+                    padding: const EdgeInsets.all(20),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Mandaue City Jail Male Dormitory',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                  IconButton(
+                                    onPressed: () {
+                                      // Arrow button action to show detailed information
+                                    },
+                                    icon: Icon(Icons.arrow_forward),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      // Approve button action
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors
+                                          .green, // Green color for approve button
+                                    ),
+                                    child: Text('Approve'),
+                                  ),
+                                  SizedBox(
+                                      width: 10), // Add spacing between buttons
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      // Decline button action
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors
+                                          .red, // Red color for decline button
+                                    ),
+                                    child: Text('Decline'),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
+                      ],
                     ),
                   ),
                 ],
@@ -126,6 +240,8 @@ class ManageJailFacilityPage extends StatelessWidget {
 }
 
 class Sidebar extends StatelessWidget {
+  const Sidebar({Key? key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -135,14 +251,14 @@ class Sidebar extends StatelessWidget {
             color: Colors.black.withOpacity(0.2),
             spreadRadius: 5,
             blurRadius: 7,
-            offset: Offset(0, 3),
+            offset: const Offset(0, 3),
           ),
         ],
       ),
       child: Container(
         width: 300,
-        color: Color.fromARGB(255, 4, 14, 29),
-        child: Column(
+        color: const Color.fromARGB(255, 4, 14, 29),
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'dashboard.dart'; // Import the dashboard file
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,12 +15,15 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: LoginSignUpScreen(), // Set the home to your login/sign up screen
+      home:
+          const LoginSignUpScreen(), // Set the home to your login/sign up screen
     );
   }
 }
 
 class LoginSignUpScreen extends StatefulWidget {
+  const LoginSignUpScreen({super.key});
+
   @override
   _LoginSignUpScreenState createState() => _LoginSignUpScreenState();
 }
@@ -27,7 +32,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
   final _formKey = GlobalKey<FormState>();
   String _email = '';
   String _password = '';
-  bool _isLogin = true;
+  final bool _isLogin = true;
   bool _isSuccess = false;
 
   @override
@@ -43,8 +48,8 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
               width: 60, // Adjust width as needed
               height: 60, // Adjust height as needed
             ),
-            SizedBox(width: 8),
-            Text(
+            const SizedBox(width: 8),
+            const Text(
               'JailTrack',
               style: TextStyle(
                 fontWeight: FontWeight.bold,
@@ -59,18 +64,18 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
         child: Container(
           width: 400,
           height: 500,
-          padding: EdgeInsets.all(20.0),
-          margin: EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20.0),
+          margin: const EdgeInsets.all(20.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(20.0),
           ),
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Center(
+                const Center(
                   child: Text(
                     'Admin Login Account',
                     style: TextStyle(
@@ -79,7 +84,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                     ),
                   ),
                 ),
-                SizedBox(height: 40),
+                const SizedBox(height: 40),
                 Form(
                   key: _formKey,
                   child: Column(
@@ -89,7 +94,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                         decoration: InputDecoration(
                           labelText: 'Email',
                           prefixIcon: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Image.asset(
                               'icons/email.png',
                               width: 16,
@@ -108,12 +113,12 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                           _email = value!;
                         },
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       TextFormField(
                         decoration: InputDecoration(
                           labelText: 'Password',
                           prefixIcon: Padding(
-                            padding: EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.all(8.0),
                             child: Image.asset(
                               'icons/password.png',
                               width: 16,
@@ -132,7 +137,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                           _password = value!;
                         },
                       ),
-                      SizedBox(height: 30),
+                      const SizedBox(height: 30),
                       ElevatedButton(
                         onPressed: () {
                           final form = _formKey.currentState;
@@ -156,24 +161,24 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
                         ),
                         child: Text(_isLogin ? 'Login' : 'Sign Up'),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Row(
                         children: [
-                          Spacer(),
+                          const Spacer(),
                           TextButton(
                             onPressed: () {
                               _forgotPassword(context);
                             },
-                            child: Text(
+                            child: const Text(
                               'Forgot Password?',
                               style: TextStyle(fontSize: 10),
                             ),
                           ),
                         ],
                       ),
-                      SizedBox(height: 10),
+                      const SizedBox(height: 10),
                       if (_isSuccess)
-                        Center(
+                        const Center(
                           child: Text(
                             'Login/Sign Up Successful!',
                             style: TextStyle(
@@ -197,7 +202,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
     setState(() {
       _isSuccess = true;
     });
-    Future.delayed(Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 1), () {
       setState(() {
         _isSuccess = false;
       });
@@ -209,7 +214,7 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
   void _navigateToDashboard(BuildContext context) {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => DashboardScreen()),
+      MaterialPageRoute(builder: (context) => const DashboardScreen()),
     );
   }
 
@@ -218,25 +223,27 @@ class _LoginSignUpScreenState extends State<LoginSignUpScreen> {
     // For example, you can navigate to a password reset page
     Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ForgotPasswordScreen()),
+      MaterialPageRoute(builder: (context) => const ForgotPasswordScreen()),
     );
   }
 }
 
 class ForgotPasswordScreen extends StatelessWidget {
+  const ForgotPasswordScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot Password'),
+        title: const Text('Forgot Password'),
       ),
       body: Container(
         color: const Color.fromARGB(255, 4, 14, 29),
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         child: Center(
           child: Container(
             width: 300,
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(20),
@@ -244,16 +251,16 @@ class ForgotPasswordScreen extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                const Text(
                   'Forgot Password',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 20,
                   ),
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Email',
                     border: OutlineInputBorder(),
                   ),
@@ -265,12 +272,12 @@ class ForgotPasswordScreen extends StatelessWidget {
                     return null;
                   },
                 ),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
                     // Implement forgot password functionality
                   },
-                  child: Text('Submit'),
+                  child: const Text('Submit'),
                 ),
               ],
             ),

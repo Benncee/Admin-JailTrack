@@ -9,7 +9,7 @@ class SidebarMenuItem extends StatefulWidget {
   final String text;
   final String iconPath;
 
-  const SidebarMenuItem({required this.text, required this.iconPath});
+  const SidebarMenuItem({super.key, required this.text, required this.iconPath});
 
   @override
   _SidebarMenuItemState createState() => _SidebarMenuItemState();
@@ -27,7 +27,7 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
           // Set the color to the desired hover color
           setState(() {
             hoverColor =
-                Color.fromARGB(255, 184, 184, 184); // Example hover color
+                const Color.fromARGB(255, 184, 184, 184); // Example hover color
           });
         },
         onExit: (_) {
@@ -46,8 +46,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          DashboardScreen(),
-                      transitionDuration: Duration(seconds: 0),
+                          const DashboardScreen(),
+                      transitionDuration: const Duration(seconds: 0),
                       transitionsBuilder:
                           (context, animation1, animation2, child) {
                         return child;
@@ -60,8 +60,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          NotificationsPage(),
-                      transitionDuration: Duration(seconds: 0),
+                          const NotificationsPage(),
+                      transitionDuration: const Duration(seconds: 0),
                       transitionsBuilder:
                           (context, animation1, animation2, child) {
                         return child;
@@ -74,8 +74,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          ManageJailFacilityPage(),
-                      transitionDuration: Duration(seconds: 0),
+                          const ManageJailFacilityPage(),
+                      transitionDuration: const Duration(seconds: 0),
                       transitionsBuilder:
                           (context, animation1, animation2, child) {
                         return child;
@@ -87,8 +87,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          ManageJailAccountsPage(),
-                      transitionDuration: Duration(seconds: 0),
+                          const ManageJailAccountsPage(),
+                      transitionDuration: const Duration(seconds: 0),
                       transitionsBuilder:
                           (context, animation1, animation2, child) {
                         return child;
@@ -101,8 +101,8 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     context,
                     PageRouteBuilder(
                       pageBuilder: (context, animation1, animation2) =>
-                          SettingsPage(),
-                      transitionDuration: Duration(seconds: 0),
+                          const SettingsPage(),
+                      transitionDuration: const Duration(seconds: 0),
                       transitionsBuilder:
                           (context, animation1, animation2, child) {
                         return child;
@@ -123,10 +123,10 @@ class _SidebarMenuItemState extends State<SidebarMenuItem> {
                     width: 24,
                     height: 24,
                   ),
-                  SizedBox(width: 8),
+                  const SizedBox(width: 8),
                   Text(
                     widget.text,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.bold,
