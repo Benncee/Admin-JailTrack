@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:food/sidebar_menu.dart';
 import 'main.dart';
-// Import the dashboard.dart file
 
 class ManageJailAccountsPage extends StatelessWidget {
-  const ManageJailAccountsPage({super.key});
+  const ManageJailAccountsPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,9 +13,9 @@ class ManageJailAccountsPage extends StatelessWidget {
         title: Row(
           children: [
             Image.asset(
-              'icons/JailTrackLogo.png', // Path to your JailTrack logo
-              width: 60, // Adjust width as needed
-              height: 60, // Adjust height as needed
+              'icons/JailTrackLogo.png',
+              width: 60,
+              height: 60,
             ),
             const SizedBox(width: 8),
             const Text(
@@ -62,7 +61,7 @@ class ManageJailAccountsPage extends StatelessWidget {
               margin: const EdgeInsets.all(50.0),
               padding: const EdgeInsets.all(20.0),
               decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 255, 255, 255),
+                color: const Color.fromARGB(255, 185, 185, 185),
                 borderRadius: BorderRadius.circular(20.0),
                 boxShadow: [
                   BoxShadow(
@@ -76,10 +75,9 @@ class ManageJailAccountsPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // New container with rounded edges and adjusted position
                   Container(
                     width: double.infinity,
-                    margin: const EdgeInsets.only(bottom: 10.0), // Adjusted margin
+                    margin: const EdgeInsets.only(bottom: 10.0),
                     height: 80,
                     decoration: BoxDecoration(
                       color: Colors.lightBlue,
@@ -99,32 +97,17 @@ class ManageJailAccountsPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   Expanded(
                     child: Scrollbar(
-                      child: ListView.builder(
-                        itemCount:
-                            1, // Set itemCount to 1 to display an empty list
-                        itemBuilder: (context, index) {
-                          return Opacity(
-                            opacity: 0.5, // Set the opacity level here
-                            child: Container(
-                              width: 1450,
-                              height: 585,
-                              decoration: BoxDecoration(
-                                color: Colors.lightBlue,
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: const Center(
-                                child: Text(
-                                  'No Accounts Displayed',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 24,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          );
-                        },
+                      child: ListView(
+                        children: [
+                          _buildAccountListItem(
+                            context,
+                            'Cebu City Jail Male Dormitory',
+                          ),
+                          _buildAccountListItem(
+                            context,
+                            'Mandaue City Jail Male Dormitory',
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -136,10 +119,43 @@ class ManageJailAccountsPage extends StatelessWidget {
       ),
     );
   }
+
+  Widget _buildAccountListItem(BuildContext context, String accountName) {
+    return Container(
+      margin: const EdgeInsets.only(bottom: 20),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            accountName,
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 18,
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Handle delete button action
+            },
+            style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+            ),
+            child: Text('Delete'),
+          ),
+        ],
+      ),
+    );
+  }
 }
 
 class Sidebar extends StatelessWidget {
-  const Sidebar({super.key});
+  const Sidebar({Key? key});
 
   @override
   Widget build(BuildContext context) {
